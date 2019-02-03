@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Tutorial
-#from tinymce.widgets import render_tinymce_init_js
+from tinymce.widgets import TinyMCE
 from django.db import models
 
 
@@ -10,9 +10,9 @@ class TutorialAdmin(admin.ModelAdmin):
         ("Title/date", {'fields': ["tutorial_title", "tutorial_published"]}),
         ("Content", {"fields": ["tutorial_content"]})
     ]
-    # formfield_overrides = {
-    #     models.TextField: {'widget': TinyMCE()},
-    # }
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE()},
+    }
 
 
 admin.site.register(Tutorial, TutorialAdmin)
