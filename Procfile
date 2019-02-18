@@ -1,0 +1,1 @@
+web: gunicorn Matrivumeblog.wsgi --log-file -
